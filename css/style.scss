@@ -5,7 +5,8 @@ $accent: rgb(29, 219, 61);
 $colors: (
   primary: rgb(45, 46, 50),
   secondary: rgb(37,38,42),
-  accent: rgb(29, 219, 61)
+  accent: rgb(29, 219, 61),
+  white: #ffffff
 );
 
 $grid-breakpoints: (
@@ -21,7 +22,7 @@ html, body {
 }
 
 h1, h2, h3, h4, h5, h6, p, li, a, input {
-  color: #ffffff;
+  color: map-get($colors, white);
 }
 
 .navbar {

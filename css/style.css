@@ -36,6 +36,14 @@ h1, h2, h3, h4, h5, h6, p, li, a, input {
   color: rgb(29, 219, 61) !important;
 }
 
+.bg-white {
+  background-color: #ffffff !important;
+}
+
+.white-text {
+  color: #ffffff !important;
+}
+
 .hero-container {
   height: auto;
   width: 100%;
