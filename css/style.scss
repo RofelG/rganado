@@ -13,6 +13,8 @@ $grid-breakpoints: (
   xl: 1399.98px
 );
 
+$blur: blur(15px);
+
 html, body {
   background-color: map-get($colors, primary);
 }
@@ -55,7 +57,7 @@ h1, h2, h3, h4, h5, h6, p, li, a, input {
     &:after {
       content: '';
       background-color: rgba(45, 46, 50, 0.3);
-      backdrop-filter: blur(15px);
+      backdrop-filter: $blur;
       position: absolute;
       top: 0;
       left: 0;
