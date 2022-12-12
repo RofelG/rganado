@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap");
 html, body {
   background-color: rgb(45, 46, 50);
 }
@@ -81,8 +82,18 @@ h1, h2, h3, h4, h5, h6, p, li, a, input {
   translate: -50% -50%;
 }
 .hero-container .hero-content h1 {
+  font-family: "Noto Sans Mono", monospace;
   font-size: clamp(40pt, 5vw, 80pt);
-  line-height: 0.8;
+  width: 17ch;
+  line-height: 1;
+  position: relative;
+  -webkit-animation: typing 3s steps(17), cursor 0.5s step-end infinite alternate;
+          animation: typing 3s steps(17), cursor 0.5s step-end infinite alternate;
+  padding-right: 0.5ch;
+  border-right: 5px solid;
+  border-color: rgb(29, 219, 61);
+  white-space: nowrap;
+  overflow: hidden;
 }
 .hero-container .hero-content h6 {
   font-size: clamp(10pt, 5vw, 18pt);
@@ -103,6 +114,27 @@ a.card:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+@-webkit-keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+@-webkit-keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
 @media (max-width: 767.98px) {
   .navbar {
     position: unset;
