@@ -79,7 +79,7 @@ h1, h2, h3, h4, h5, h6, p, li, a, input {
       width: 17ch;
       line-height: 1;
       position: relative;
-      animation: typing 3s steps(17), cursor 0.5s step-end infinite alternate;
+      animation: typing 2s steps(17), cursor 0.5s step-end infinite alternate;
       padding-right: 0.5ch;
       border-right: 5px solid;
       border-color: map-get($colors, accent);
@@ -133,6 +133,21 @@ a {
     aspect-ratio: 1/1;
     .hero-video-container {
       aspect-ratio: 1/1;
+    }
+    .hero-content {
+      h1 {
+        animation: unset;
+        white-space: initial;
+        border: unset;
+        line-height: 1.2;
+
+        .accent-text {
+          border-right: 5px solid;
+          border-color: map-get($colors, accent);
+          animation: cursor 0.5s step-end infinite alternate;
+        }
+      }
+      
     }
   }
 }
