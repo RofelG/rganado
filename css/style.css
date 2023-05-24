@@ -87,8 +87,7 @@ h1, h2, h3, h4, h5, h6, p, li, a, input {
   width: 17ch;
   line-height: 1;
   position: relative;
-  -webkit-animation: typing 2s steps(17), cursor 0.5s step-end infinite alternate;
-          animation: typing 2s steps(17), cursor 0.5s step-end infinite alternate;
+  animation: typing 2s steps(17), cursor 0.5s step-end infinite alternate;
   padding-right: 0.5ch;
   border-right: 5px solid;
   border-color: rgb(29, 219, 61);
@@ -121,20 +120,9 @@ a.social-link:hover svg {
   fill: #ffffff;
 }
 
-@-webkit-keyframes typing {
-  from {
-    width: 0;
-  }
-}
-
 @keyframes typing {
   from {
     width: 0;
-  }
-}
-@-webkit-keyframes cursor {
-  50% {
-    border-color: transparent;
   }
 }
 @keyframes cursor {
@@ -153,8 +141,7 @@ a.social-link:hover svg {
     aspect-ratio: 1/1;
   }
   .hero-container .hero-content h1 {
-    -webkit-animation: unset;
-            animation: unset;
+    animation: unset;
     white-space: initial;
     border: unset;
     line-height: 1.2;
@@ -162,7 +149,6 @@ a.social-link:hover svg {
   .hero-container .hero-content h1 .accent-text {
     border-right: 5px solid;
     border-color: rgb(29, 219, 61);
-    -webkit-animation: cursor 0.5s step-end infinite alternate;
-            animation: cursor 0.5s step-end infinite alternate;
+    animation: cursor 0.5s step-end infinite alternate;
   }
 }/*# sourceMappingURL=style.css.map */
