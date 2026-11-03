@@ -1,0 +1,21 @@
+services:
+  portfolio:
+    build: .
+    ports:
+      - "${PORT:-8080}:80"
+    depends_on:
+      scratch:
+        condition: service_healthy
+    restart: unless-stopped
+  scratch:
+    build:
+      context: .
+      dockerfile: docker/scratch/Dockerfile
+    environment:
+      CONTENT_MAPPING: '${CONTENT_MAPPING:-}'
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:3000/', r => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))"]
+      interval: 3s
+      timeout: 2s
+      retries: 10
+    restart: unless-stopped
