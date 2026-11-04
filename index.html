@@ -1,230 +1,187 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7LCBMZD6Z8"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-7LCBMZD6Z8');
-  </script>
-
-  <title>Rofel Ganado</title>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS v5.2.1 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha256-IUOUHAPazai08QFs7W4MbzTlwEWFo7z/4zw8YmxEiko=" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rofel Ganado is a full-stack web developer working across web applications, Linux, and infrastructure.">
+  <title>Rofel Ganado | Full-Stack Developer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/style.css">
-
 </head>
-
-<body>
-  <nav class="navbar navbar-expand-sm navbar-dark">
-      <div class="container">
-      <a class="navbar-brand" href="/">RGANADO</a>
-      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-        aria-expanded="false" aria-label="Toggle navigation">
+<body id="top">
+  <nav class="navbar navbar-expand-md navbar-dark site-nav">
+    <div class="container">
+      <a class="navbar-brand" href="#top"><span class="accent-text">&gt;_</span> RGANADO</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-links" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="collapsibleNavId">
-        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#projects" id="projectDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects</a>
-            <div class="dropdown-menu" aria-labelledby="projectDropdown">
-              <a class="dropdown-item" href="#escapeTheInside">Escape the Inside</a>
-              <a class="dropdown-item" href="#tiktok-clone">TikTok Clone</a>
-              <a class="dropdown-item" href="#scratch">Scratch</a>
-              <a class="dropdown-item" href="#flower">Flower</a>
-              <a class="dropdown-item" href="#sleevd">Sleevd</a>
-            </div>
-          </li>
-        </ul>
+      <div class="collapse navbar-collapse" id="nav-links">
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#projects">Projects</a>
+          <a class="nav-link" href="#homelab">Homelab</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </div>
       </div>
     </div>
   </nav>
-  
-  <div class="container-fluid hero-container px-5 position-relative">
-    <div class="hero-content col-12 px-5 position-absolute">
-      <h1>Hello, I'm <span class="accent-text">Rofel.</span></h1>
-      <h6>Web Developer</h6>
-    </div>
+  <header class="hero-container">
     <div class="hero-video-container">
-      <video class="hero-vid" playsinline autoplay muted loop preload="auto">
+      <video class="hero-vid" playsinline autoplay muted loop preload="metadata" aria-hidden="true">
         <source src="/img/hero.webm" type="video/webm">
         <source src="/img/hero.mp4" type="video/mp4">
       </video>
     </div>
-  </div>
-
-  <main class="position-relative">
-    <div class="container-fluid bg-secondary">
-      <div class="container py-5">
-        <div class="row">
-          <div class="col-12 col-md-5">
-            <div class="row">
-              <div class="col-12 pb-3">
-                <sub class="text-white" id="about">About</sub>
-              </div>
-              <div class="col-12">
-                <p>
-                  Hard working Web Developer based in Toronto, ON with three years of experience writing, modifying and fixing code. 
-                  Highly poised and dedicated with talent in design principles and programming languages. 
-                  Excellent eye for visual aesthetics paired with insight into data and backend functionality.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-7">
-            <div class="row">
-              <div class="col-12 pb-3">
-                <sub class="text-white" id="projects">Projects</sub>
-              </div>
-              <div class="col-12 p-2 position-relative">
-                <a href="https://www.escapetheinside.com" id="escapeTheInside" class="card card-spring px-5 py-3 bg-primary text-white border-0">
-                  <div class="row">
-                    <div class="col-12">
-                      <h4 class="accent-text mb-0">Escape The Inside</h4>
-                    </div>
-                    <div class="col-12 pb-3">
-                      <sub class="text-muted">EJS, MySQL, NodeJS, JWT, Git, Bootstrap-5.2.2, ES6 </sub>
-                    </div>
-                    <div class="col-12">
-                      <p>
-                        A logged in Events system where people can create and sign up for events. 
-                        This showcases a user based system utilizing JWT as well as a MySQL database storing and querying records. 
-                        This was created as a way for me and my friends to organize activities as our schedules always conflict.
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-12 p-2 position-relative">
-                <a href="https://tiktok-clone.rganado.com" id="tiktok-clone" class="card card-spring px-5 py-3 bg-primary text-white border-0">
-                  <div class="row">
-                    <div class="col-12">
-                      <h4 class="accent-text mb-0">TikTok Clone</h4>
-                    </div>
-                    <div class="col-12 pb-3">
-                      <sub class="text-muted">EJS, NodeJS, Git, Bootstrap-5.2.2, ES6, API, Imgur </sub>
-                    </div>
-                    <div class="col-12">
-                      <p>
-                        A TikTok clone utilizing the Imgur API to fetch and display videos. Intersection Observer is used to load and play videos as they come into view.
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-12 p-2 position-relative">
-                <a href="/scratch/" id="scratch" class="card card-spring px-5 py-3 bg-primary text-white border-0">
-                  <h4 class="accent-text mb-0">Scratch</h4>
-                  <sub class="text-muted pb-3">Node.js, Express, EJS, JavaScript</sub>
-                  <p>A scratch card app that helps you pick something to eat, a dessert, or an activity.</p>
-                </a>
-              </div>
-              <div class="col-12 p-2 position-relative">
-                <a href="/flower/" id="flower" class="card card-spring px-5 py-3 bg-primary text-white border-0">
-                  <h4 class="accent-text mb-0">Flower</h4>
-                  <sub class="text-muted pb-3">HTML, SCSS, JavaScript</sub>
-                  <p>A flower animation made for the web.</p>
-                </a>
-              </div>
-              <div class="col-12 p-2 position-relative">
-                <a href="https://apps.apple.com/ca/app/sleevd/id6786500327" id="sleevd" class="card card-spring px-5 py-3 bg-primary text-white border-0">
-                  <h4 class="accent-text mb-0">Sleevd</h4>
-                  <sub class="text-muted pb-3">Personal project, iOS</sub>
-                  <p>A trading card collection manager with card scanning and a digital binder. View on the App Store.</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="container hero-content">
+      <p class="hero-kicker">FULL-STACK DEVELOPER · MISSISSAUGA, ON</p>
+      <h1>Hello, I'm <span class="accent-text">Rofel.</span></h1>
+      <h2>Web Developer<span class="accent-text">_</span></h2>
+      <p>I build useful web experiences and the systems that help them run.</p>
+      <a class="hero-button" href="#projects">View projects <span aria-hidden="true">↘</span></a>
     </div>
-  </main>
-
-  <footer class="bg-primary position-relative">
-    <div class="container-fluid py-5">
+  </header>
+  <main>
+    <section class="section about-section" id="about">
       <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-6 col-lg-8">
-            <div class="row d-none">
-              <ul class="nav">
-                <li class="nav-link text-white" href="#escapeTheInside">Escape The Inside</li>
-                <li class="nav-link text-white" href="#tiktok-clone">TikTok Clone</li>
-                <li class="nav-link text-white">Links Here</li>
-                <li class="nav-link text-white">Links Here</li>
-              </ul>
-            </div>
+        <div class="row g-5">
+          <div class="col-lg-6">
+            <p class="section-kicker">01 / ABOUT</p>
+            <h2>From the interface<br>to the <span class="accent-text">infrastructure.</span></h2>
+            <p>
+              I'm a full-stack developer with over six years of professional experience building web applications, 
+              shaping technical direction, and helping teams deliver. I enjoy bringing together thoughtful interfaces, 
+              reliable backend systems, and practical infrastructure.
+            </p>
+            <p>At The Design Cell, I work across application architecture, RESTful APIs, deployments, 
+              and Linux administration. I've also led the adoption of AI-assisted development and agentic workflows.
+            </p>
           </div>
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="row">
-              <div class="col-12 pb-3">
-                <sub class="text-white">Contact</sub>
-              </div>
-              <div class="col-12">
-                <h6><a class="text-decoration-none" href="mailto:rofel_p_ganado@hotmail.com">rofel_p_ganado@hotmail.com</a></h6>
-              </div>
-              <div class="col-12 pt-3">
-                <div class="d-flex justify-content-start flex-row">
-                  <a class="pe-3 social-link" href="https://www.linkedin.com/in/rofel-ganado/" target="_blank" rel="noopener">
-                    <!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                    <svg width="35" height="35" version="1.1" id="lni_lni-linkedin-original" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                      x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
-                    <path d="M58.5,1H5.6C3.1,1,1.1,3,1.1,5.5v53c0,2.4,2,4.5,4.5,4.5h52.7c2.5,0,4.5-2,4.5-4.5V5.4C63,3,61,1,58.5,1z M19.4,53.7h-9.1
-                      V24.2h9.1V53.7z M14.8,20.1c-3,0-5.3-2.4-5.3-5.3s2.4-5.3,5.3-5.3s5.3,2.4,5.3,5.3S17.9,20.1,14.8,20.1z M53.9,53.7h-9.1V39.4
-                      c0-3.4-0.1-7.9-4.8-7.9c-4.8,0-5.5,3.8-5.5,7.6v14.6h-9.1V24.2h8.9v4.1h0.1c1.3-2.4,4.2-4.8,8.7-4.8c9.3,0,11,6,11,14.2v16H53.9z"/>
-                    </svg>
-                  </a>
-  
-                  <a class="pe-3 social-link" href="https://github.com/RofelG" target="_blank" rel="noopener">
-                    <svg width="35" height="35" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
-                      <!-- Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                      <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 
-                        4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 
-                        4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 
-                        0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 
-                        72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 
-                        69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 
-                        58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 
-                        362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 
-                        1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 
-                        35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 
-                        1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
-                    </svg>
-                  </a>
-                </div>
-              </div>
+          <div class="col-lg-6">
+            <p class="section-kicker">WHAT I WORK WITH</p>
+            <h3>Tools of the trade<span class="accent-text">.</span></h3>
+            <div class="skills">
+              <span>PHP</span>
+              <span>Laravel</span>
+              <span>JavaScript</span>
+              <span>HTML & SCSS</span>
+              <span>RESTful APIs</span>
+              <span>MySQL</span>
+              <span>Docker</span>
+              <span>Linux</span>
+              <span>NGINX</span>
+              <span>Jenkins</span>
+              <span>AWS</span>
+              <span>Git</span>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 text-white text-center pt-5">
-            <sub>&copy 2022 Rofel Ganado - All Rights Reserved</sub>
+            <p class="skills-note">
+              From modernizing existing applications to building deployment workflows and 
+              exploring native iOS in my personal projects.
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  </footer>
-  <!-- Bootstrap JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
-    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha256-h1OMS35Ij1pJ0S+Y1qBK/GHQDyankPMZVpeZrNQ062U=" crossorigin="anonymous"></script>
-
+    </section>
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <p class="section-kicker">02 / SELECTED PROJECTS</p>
+        <div class="section-heading"><div>
+          <h2>Things I've <span class="accent-text">made.</span></h2>
+          <p>Experiments, useful tools, and a little creative coding.</p>
+        </div>
+        <a href="https://github.com/RofelG" class="section-link">More on GitHub ↗</a>
+      </div>
+      <div class="project-grid">
+        <a href="/scratch/" class="project-card card-spring">
+          <div class="project-image project-image-scratch">
+            <img src="/img/projects/scratch.png" alt="Scratch card app interface" loading="lazy">
+          </div>
+          <div class="project-content">
+            <p class="project-type">WEB APP · NODE.JS</p>
+            <h3>Scratch <span>↗</span></h3>
+            <p>A scratch card app for picking something to eat or do when you can't decide.</p>
+            <div class="tags">
+              <span>Express</span>
+              <span>EJS</span>
+              <span>JavaScript</span>
+            </div>
+          </div>
+        </a>
+        <a href="/flower/" class="project-card card-spring">
+          <div class="project-image project-image-flower">
+            <img src="/img/projects/flower.png" alt="Flower animation in the browser" loading="lazy">
+          </div>
+          <div class="project-content">
+            <p class="project-type">CREATIVE CODE · WEB</p>
+            <h3>Flower <span>↗</span></h3>
+            <p>A little flower animation made for the web, just for the joy of creating.</p>
+            <div class="tags">
+              <span>HTML</span>
+              <span>SCSS</span>
+              <span>JavaScript</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://apps.apple.com/ca/app/sleevd/id6786500327" class="project-card card-spring">
+          <div class="project-image project-image-phone">
+            <img src="/img/projects/sleevd.png" alt="Sleevd trading card manager App Store screenshot" loading="lazy">
+          </div>
+          <div class="project-content">
+            <p class="project-type">PERSONAL PROJECT · IOS</p>
+            <h3>Sleevd <span>↗</span></h3>
+            <p>A trading card collection manager with scanning and a digital binder.</p>
+            <div class="tags">
+              <span>iOS</span>
+              <span>App Store</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://github.com/RofelG/tiktok-clone" class="project-card card-spring">
+          <div class="project-image project-image-code" aria-hidden="true">
+            <span>&lt;video&gt;</span>
+            <strong>▶</strong>
+            <span>&lt;/video&gt;</span>
+          </div>
+          <div class="project-content">
+            <p class="project-type">WEB APP · API</p>
+            <h3>TikTok Clone <span>↗</span></h3>
+            <p>A video feed using the Imgur API and Intersection Observer to play videos in view.</p>
+            <div class="tags">
+              <span>Node.js</span>
+              <span>API</span>
+              <span>JavaScript</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+    <section class="section homelab-section" id="homelab">
+      <div class="container">
+        <p class="section-kicker">03 / PERSONAL INFRASTRUCTURE</p>
+        <div class="row g-5">
+          <div class="col-lg-5">
+            <h2>My <span class="accent-text">homelab.</span></h2>
+            <p>
+              A place to learn by running real services. I use my home setup to explore storage, 
+              networking, and self-hosted applications - and to troubleshoot the details that make them work together.
+            </p>
+            <div class="terminal" aria-label="Homelab tools">
+              <span>$ whoami</span><strong>curious builder_</strong><span>$ cat homelab.txt</span><strong>storage · dns · services</strong>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="lab-list">
+              <article><span class="lab-number">01</span><div><h3>TrueNAS SCALE</h3><p>Operating Docker Compose services and working through storage mounts, persistent volumes, permissions, and service dependencies.</p></div></article>
+              <article><span class="lab-number">02</span><div><h3>Pi-hole &amp; DNS</h3><p>Configuring DNS and internal hostnames, and troubleshooting name resolution and connectivity.</p></div></article>
+              <article><span class="lab-number">03</span><div><h3>NGINX Proxy Manager</h3><p>Routing services through a reverse proxy and working through TLS and port mapping.</p></div></article>
+              <article><span class="lab-number">04</span><div><h3>Docker Compose</h3><p>Running and maintaining self-hosted services, from startup to storage and networking.</p></div></article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="contact"><div class="container footer-inner"><div><a class="footer-brand" href="#top"><span class="accent-text">&gt;_</span> Rofel Ganado</a><p>Full-stack developer · Builder · Homelab enthusiast</p></div><div class="footer-links"><a href="mailto:rofelganado@gmail.com">Email ↗</a><a href="https://github.com/RofelG">GitHub ↗</a><a href="https://www.linkedin.com/in/rofel-ganado/">LinkedIn ↗</a></div></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <script src="/js/index.js"></script>
 </body>
-
 </html>
