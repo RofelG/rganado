@@ -67,6 +67,7 @@ a {
         rgba(20, 21, 23, 0.86),
         rgba(25, 26, 29, 0.48)
       );
+      -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
     }
   }
