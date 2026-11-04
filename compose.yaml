@@ -1,11 +1,25 @@
 services:
-  portfolio:
+  web:
     build: .
     ports:
       - "${PORT:-8080}:80"
     depends_on:
+      portfolio:
+        condition: service_healthy
       scratch:
         condition: service_healthy
+    restart: unless-stopped
+  portfolio:
+    build:
+      context: .
+      dockerfile: docker/portfolio.Dockerfile
+    environment:
+      GOOGLE_TAG_ID: '${GOOGLE_TAG_ID:-}'
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:3000/', r => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))"]
+      interval: 3s
+      timeout: 2s
+      retries: 10
     restart: unless-stopped
   scratch:
     build:
