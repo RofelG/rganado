@@ -1,51 +1,44 @@
-const listItems = document.querySelectorAll(".card-spring");
-const springConstant = 0.2; // adjust this value to change the strength of the spring
-const dampingFactor = 0.8; // adjust this value to change the damping of the spring
-const targetY = 50; // adjust this value to change the target position of the spring
-const scrollSpeed = 0.1; // adjust this value to change scroll sensitivity
+const cards = [...document.querySelectorAll('.card-spring')];
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const state = cards.map((_, index) => ({ position: 0, velocity: 0, strength: 0.08 + index * 0.015 }));
+let lastScroll = window.scrollY;
+let frame;
 
-// create an array to store the current position and velocity of each list item
-const itemState = [];
-listItems.forEach((item, index) => {
-  itemState.push({
-    currentY: 10 * (index + 1),
-    velocity: 0,
-    springConstant: 0.1 * (index + 1),
-    dampingFactor: 0.8,
-    scrollSpeed: 0.1 - ((index + 1)/50),
-  });
-});
+function animate() {
+  let moving = false;
 
-let lastScrollTop = 0;
-
-function updateSpringAnimation() {
-  // get the current scroll position of the page
-  const scrollTop = document.documentElement.scrollTop;
-
-  
-  // update the position and velocity of each list item
-  listItems.forEach((item, index) => {
-    
-    // calculate the new target position based on the scroll position
-    const newTargetY = targetY - (scrollTop * itemState[index].scrollSpeed);
-
-    // calculate the spring force
-    const springForce = -(itemState[index].currentY - newTargetY) * itemState[index].springConstant;
-
-    // update the velocity and current position of the spring
-    itemState[index].velocity += springForce;
-    itemState[index].velocity *= itemState[index].dampingFactor;
-    itemState[index].currentY += itemState[index].velocity;
-
-    // update the position of the list item
-    item.style.transform = `translateY(${itemState[index].currentY}px)`;
-
-    console.log('Updated position of item', index, 'to', itemState[index].currentY);
+  cards.forEach((card, index) => {
+    const item = state[index];
+    item.velocity = (item.velocity - item.position * item.strength) * 0.8;
+    item.position += item.velocity;
+    if (Math.abs(item.position) > 0.05 || Math.abs(item.velocity) > 0.05) moving = true;
+    card.style.transform = `translateY(${item.position}px)`;
   });
 
-  // schedule the next animation frame
-  requestAnimationFrame(updateSpringAnimation);
+  frame = moving ? requestAnimationFrame(animate) : null;
+
+  if (!moving) cards.forEach(card => { card.style.transform = ''; });
 }
 
-// start the animation, with a delay for each subsequent item
-updateSpringAnimation();
+window.addEventListener('scroll', () => {
+
+  const delta = Math.max(-25, Math.min(25, window.scrollY - lastScroll));
+  lastScroll = window.scrollY;
+
+  if (reducedMotion.matches) return;
+
+  state.forEach((item, index) => { item.velocity -= delta * (0.025 + index * 0.006); });
+
+  if (!frame) frame = requestAnimationFrame(animate);
+}, { passive: true });
+
+reducedMotion.addEventListener('change', () => {
+
+  if (reducedMotion.matches) {
+    cancelAnimationFrame(frame);
+
+    frame = null;
+    state.forEach(item => { item.position = 0; item.velocity = 0; });
+    cards.forEach(card => { card.style.transform = ''; });
+  }
+});
