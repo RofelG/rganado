@@ -48,7 +48,12 @@ Before any code is considered "Done," it must meet the following criteria:
 - [ ] **Visual Consistency:** Changes adhere to the rules defined in `DESIGN.md`.
 
 ### Automated Pre-commit Hooks
-To ensure stability, a pre-commit hook is installed that runs the entire test suite (`npm test`) before any commit can be created. If any test fails, the commit is aborted.
+
+To ensure code quality, a `pre-commit` hook is used to run the unit test suite. 
+- **Script Location:** `hooks/pre-commit`
+- **Command:** `npm test` (using Jest)
+
+The project uses `git config core.hooksPath hooks` to manage hooks. The hook script is located in the `hooks/pre-commit` directory and is versioned for forensics. If any test fails, the commit is aborted.
 
 ## Bug Reporting & Regression
 When a bug is identified:
