@@ -1,0 +1,4 @@
+# Alert ID	Action	Comment
+10049	IGNORE	Caching posture is not a vulnerability for this static portfolio.
+10109	IGNORE	Modern application detection is informational.
+90004	IGNORE	Cross-origin isolation is not required and would restrict third-party analytics and font resources.
