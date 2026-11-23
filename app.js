@@ -13,6 +13,16 @@ app.disable('x-powered-by');
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+// API endpoints
+app.get('/api/projects', (req, res) => {
+  res.json(projects);
+});
+
+app.get('/api/config', (req, res) => {
+  res.json({ tagId });
+});
+
+// Serve portfolio assets.
 for (const directory of ['css', 'img', 'js']) {
   app.use(`/${directory}`, express.static(path.join(__dirname, directory)));
 }

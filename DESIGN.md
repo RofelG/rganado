@@ -1,36 +1,42 @@
-# Design System: Portfolio
+# Design Document
 
-This document defines the visual identity and design language used throughout the application to ensure consistency across all components.
+## Overview
+This document outlines the design principles and structural components of the React-based frontend and the Express REST API.
 
-## Color Palette
+## Frontend Design
 
-### Primary Colors
-- **Accent Green**: `#1DDB3D` (Main brand color, used for highlights, buttons, and key call-to-actions)
-- **Background/Dark**: `#121212` (Deep dark background)
-- **Surface/Card**: `#1E1E1E` (Lighter dark for cards and elevated elements)
-- **Text Primary**: `#FFFFFF` (Main text)
-- **Text Secondary**: `#B0B0B0` (Muted text for descriptions and metadata)
+### Component-Based Architecture
+The frontend is built using React components to ensure reusability and maintainability.
 
-## Typography
+Key Components:
+- `Navbar`: Navigation menu.
+- `Hero`: Introduction section.
+- `About`: Information about the person/entity.
+- `Projects`: A list of projects fetched from the API.
+- `Homelab`: Details about the homelab setup.
+- `Contact`: Contact information or form.
+- `Footer`: Page footer.
 
-- **Primary Font Family**: 'Noto Sans Mono', monospace
-- **Headings**: Bold, high contrast
-- **Body Text**: Regular weight, optimized for readability on dark backgrounds
+### State Management
+- **Local State:** Managed using React hooks (`useState`, `useReducer`) for component-specific logic (e.g., form inputs, UI toggles).
+- **Data Fetching:** Managed using the `useEffect` hook to fetch data from the backend on component mount.
 
-## UI Components & Patterns
+### Styling
+- **Bootstrap:** Used for layout and standard UI components.
+- **Custom CSS:** For specialized styling and animations.
+- **Animations:** Custom scroll-based spring animations for card elements.
 
-### Cards
-- **Background**: `#1E1E1E`
-- **Border Radius**: Small rounding for a modern, sharp look.
-- **Shadows**: Subtle depth to differentiate from the background.
+## Backend Design
 
-### Buttons
-- **Primary**: Background `#1DDB3D`, Text `#121212` (High contrast for action items).
-- **Hover State**: Slight brightness adjustment.
+### RESTful API
+The backend serves as a stateless API providing data in JSON format.
 
-### Grid & Layout
-- **Responsive Grid**: Uses CSS Grid and Flexbox for fluid layouts.
-- **Spacing**: Consistent margins and padding based on a 4px/8px scale.
+Endpoints:
+- `GET /api/projects`: Returns a list of projects.
+- `GET /api/config`: Returns application configuration.
 
-## Visual Style Summary
-The design is modern, "developer-centric," and high-contrast, utilizing a dark mode aesthetic with a vibrant green accent.
+## Data Flow
+1. React components initiate `fetch` requests to the Express backend.
+2. The backend retrieves data from the data source (e.g., `data/projects.js`).
+3. The backend returns JSON responses.
+4. React components update their state and re-render the UI.

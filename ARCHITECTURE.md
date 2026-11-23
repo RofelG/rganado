@@ -1,36 +1,40 @@
-# Project Architecture: Portfolio
+# Architecture Document
 
 ## Overview
-This document defines the architectural decisions, technology stack, and development standards for the Portfolio project. It serves as a single source of truth for AI agents and developers to maintain consistency.
+This project has been migrated from a monolithic Server-Side Rendering (SSR) architecture using Express and EJS to a decoupled Client-Server architecture.
 
-## Tech Stack
+## Architecture Pattern
+The application follows a **Single Page Application (SPA)** pattern.
 
-### Backend
-- **Runtime**: Node.js (Version 20+)
-- **Web Framework**: [Express.js](https://expressjs.com/)
-- **Template Engine**: [EJS](https://ejs.co/) (Embedded JavaScript templates)
+### 1. Frontend (Client)
+- **Framework:** React (managed by Vite)
+- **Build Tool:** Vite
+- **Responsibilities:**
+  - User Interface (UI) and User Experience (UX) logic.
+  - Client-side routing (if applicable).
+  - Data fetching from the Backend API.
+  - Managing local UI state.
 
-### Frontend
-- **Styling**: Vanilla CSS
-- **Interactivity**: Vanilla JavaScript
-- **Rendering Strategy**: Server-Side Rendering (SSR) via EJS
+### 2. Backend (Server)
+- **Framework:** Express.js
+- **Responsibilities:**
+  - Serving as a RESTful API.
+  - Providing data (Projects, Configuration) as JSON.
+  - Serving static assets.
+  - Handling business logic and data persistence.
 
-### Infrastructure & Deployment
-- **Containerization**: Docker
-- **Web Server**: Nginx (configured via `nginx.conf`)
-- **Orchestration**: Docker Compose (`compose.yaml`)
+## Communication
+The Client communicates with the Server via **RESTful API** calls using the standard `fetch` API. All data is exchanged in **JSON** format.
 
-## Project Structure
+## Data Flow
+1. The React application initializes and fetches configuration from `/api/config`.
+2. The React application fetches project data from `/api/projects`.
+3. The Backend processes requests and returns JSON responses.
+4. The Frontend updates the UI based on the received data.
 
-```text
-.
-├── data/               # Data-driven content (e.g., projects.js)
-├── docker/             # Docker-related configurations
-├── img/                # Images and visual assets
-├── js/                 # Client-side JavaScript files
-├── css/                # Stylesheets
-├── views/              # EJS templates (UI components and pages)
-├── server.js           # Main application entry point
-├── package.json        # Node.js dependencies and scripts
-├── compose.yaml        # Docker Compose configuration
-└── Dockerfile          # Docker image definition
+## Deployment
+The application consists of two main parts:
+- The backend server (Express).
+- The frontend build (Vite production build).
+
+In production, the Express server is typically configured to serve the static files from the frontend's `dist` directory.
