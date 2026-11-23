@@ -8,6 +8,11 @@ describe('built React site', () => {
 
     expect(response.statusCode).toBe(200);
     expect(response.type).toMatch(/html/);
+    expect(response.headers['content-security-policy']).toContain("default-src 'self'");
+    expect(response.headers['permissions-policy']).toContain('camera=()');
+    expect(response.headers['referrer-policy']).toBe('strict-origin-when-cross-origin');
+    expect(response.headers['x-content-type-options']).toBe('nosniff');
+    expect(response.headers['x-frame-options']).toBe('DENY');
     expect(response.text).toContain('<div id="root"></div>');
     expect(response.text).toContain('<title>Rofel Ganado | Full-Stack Developer</title>');
 
