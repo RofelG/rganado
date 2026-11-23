@@ -1,6 +1,8 @@
-import React from 'react';
+import { useState } from 'react';
 
-const Navbar = () => {
+export default function Navbar() {
+  const [expanded, setExpanded] = useState(false);
+  const closeMenu = () => setExpanded(false);
   return (
     <nav className="navbar navbar-expand-md navbar-dark site-nav">
       <div className="container">
@@ -10,25 +12,22 @@ const Navbar = () => {
         <button 
           className="navbar-toggler" 
           type="button" 
-          data-bs-toggle="collapse" 
-          data-bs-target="#nav-links" 
           aria-controls="nav-links" 
-          aria-expanded="false" 
+          aria-expanded={expanded}
           aria-label="Toggle navigation"
+          onClick={() => setExpanded((isExpanded) => !isExpanded)}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="nav-links">
+        <div className={`collapse navbar-collapse${expanded ? ' show' : ''}`} id="nav-links">
           <div className="navbar-nav ms-auto">
-            <a className="nav-link" href="#about">About</a>
-            <a className="nav-link" href="#projects">Projects</a>
-            <a className="nav-link" href="#homelab">Homelab</a>
-            <a className="nav-link" href="#contact">Contact</a>
+            <a className="nav-link" href="#about" onClick={closeMenu}>About</a>
+            <a className="nav-link" href="#projects" onClick={closeMenu}>Projects</a>
+            <a className="nav-link" href="#homelab" onClick={closeMenu}>Homelab</a>
+            <a className="nav-link" href="#contact" onClick={closeMenu}>Contact</a>
           </div>
         </div>
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}

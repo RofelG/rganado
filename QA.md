@@ -29,9 +29,9 @@ Every new feature or significant logic change must be accompanied by unit tests.
 - **Target Areas:** Business logic, data processing, and helper functions.
 
 ### 2. Integration Testing
-Tests should be written to ensure that different parts of the application (e.g., Express routes, middleware, and EJS rendering) work together correctly.
+Tests should be written to ensure that different parts of the application (e.g., Express routes, middleware, and React client delivery) work together correctly.
 - **Objective:** Validate that the request-response cycle is functioning as expected.
-- **Target Areas:** API endpoints, form submissions, and route handlers.
+- **Target Areas:** API endpoints, React data fetching, and route handlers.
 
 ### 3. Testing Stack
 The following tools are used for the testing suite:

@@ -1,6 +1,6 @@
 # rganado.ca
 
-Portfolio website built with Node.js, Express, and EJS. Project cards are defined in `data/projects.js` and rendered by the server.
+Portfolio website built with a React/Vite single-page frontend and an Express JSON API. Project cards are defined in `data/projects.js` and fetched by the React client.
 
 ## Run with Docker
 
@@ -26,4 +26,4 @@ Scratch uses a sample list of suggestions by default. To supply your own, set `C
 
 ## Local development
 
-Install Node.js 20 or newer, then run `npm ci` and `npm run dev`. To enable the tag locally, run `node --env-file=.env server.js` after configuring `.env`. The portfolio is available at http://localhost:3000. Use Docker Compose to run Scratch and Flower alongside it at their `/scratch/` and `/flower/` paths.
+Install Node.js 20 or newer, then run `npm ci`, `npm --prefix client install`, and `npm --prefix client run build`. Start the API and built SPA with `npm run dev`. For frontend-only development, use `npm --prefix client run dev`. To enable the tag locally, run `node --env-file=.env server.js` after configuring `.env`. The portfolio is available at http://localhost:3000. Use Docker Compose to run Scratch and Flower alongside it at their `/scratch/` and `/flower/` paths.
