@@ -10,9 +10,6 @@ if (tagId && !/^(?:G|GT|AW)-[A-Z0-9]+$/.test(tagId)) {
 }
 
 app.disable('x-powered-by');
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
 // API endpoints
 app.get('/api/projects', (req, res) => {
   res.json(projects);
@@ -22,13 +19,12 @@ app.get('/api/config', (req, res) => {
   res.json({ tagId });
 });
 
-// Serve portfolio assets.
-for (const directory of ['css', 'img', 'js']) {
-  app.use(`/${directory}`, express.static(path.join(__dirname, directory)));
-}
+const clientBuild = path.join(__dirname, 'client', 'dist');
 
-app.get('/', (req, res) => {
-  res.render('index', { projects, tagId });
+// The React/Vite production build owns every non-API route.
+app.use(express.static(clientBuild));
+app.get('{*splat}', (req, res) => {
+  res.sendFile(path.join(clientBuild, 'index.html'));
 });
 
 module.exports = app;
