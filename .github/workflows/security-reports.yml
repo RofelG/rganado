@@ -1,0 +1,109 @@
+name: Security reports
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+  schedule:
+    - cron: '23 5 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  secrets:
+    name: Gitleaks secret scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Scan for committed secrets
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  dependencies:
+    name: Trivy filesystem scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Scan dependencies and source files
+        uses: aquasecurity/trivy-action@0.32.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          format: sarif
+          output: trivy-filesystem.sarif
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          exit-code: '1'
+
+      - name: Upload Trivy report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: trivy-filesystem-report
+          path: trivy-filesystem.sarif
+          if-no-files-found: warn
+
+      - name: Publish Trivy findings to code scanning
+        if: always() && hashFiles('trivy-filesystem.sarif') != ''
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: trivy-filesystem.sarif
+
+  zap:
+    name: OWASP ZAP baseline scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Install server dependencies
+        run: npm ci
+
+      - name: Install client dependencies
+        run: npm --prefix client ci
+
+      - name: Build the React client
+        run: npm --prefix client run build
+
+      - name: Start the portfolio locally
+        run: npm start > portfolio.log 2>&1 &
+
+      - name: Wait for the local site
+        run: |
+          for _ in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:3000/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat portfolio.log
+          exit 1
+
+      - name: Run OWASP ZAP baseline scan
+        run: |
+          docker run --rm --network host \
+            -v "$GITHUB_WORKSPACE:/zap/wrk:rw" \
+            ghcr.io/zaproxy/zaproxy:stable \
+            zap-baseline.py -t http://127.0.0.1:3000 -m 2 \
+            -r zap-report.html -J zap-report.json
+
+      - name: Upload OWASP ZAP reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: owasp-zap-baseline-report
+          path: |
+            zap-report.html
+            zap-report.json
+            portfolio.log
+          if-no-files-found: warn
