@@ -39,6 +39,15 @@ The following tools are used for the testing suite:
 - **HTTP/API Testing:** `Supertest`.
 - **Assertion Library:** Jest's built-in matchers.
 
+### 4. Security Reports
+GitHub Actions runs third-party security checks on pull requests, pushes to `master`, weekly, and on demand. These scans run against the repository and a locally started portfolio instance; they do not scan the public production domain.
+
+- **Gitleaks:** Detects committed secrets across the full Git history.
+- **Trivy:** Reports high and critical dependency and filesystem vulnerabilities in SARIF format.
+- **OWASP ZAP baseline:** Passively scans the locally built Express/React application and saves HTML and JSON reports.
+
+Trivy and ZAP reports are available as workflow artifacts; Gitleaks findings are shown in the workflow log and annotations. Trivy findings and ZAP alerts fail the security workflow so they can be reviewed before deployment.
+
 ## Quality Gates
 
 Before any code is considered "Done," it must meet the following criteria:
