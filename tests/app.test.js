@@ -13,5 +13,11 @@ describe('Express App', () => {
     expect(res.statusCode).toBe(200);
     expect(res.type).toMatch(/html/);
     expect(res.text).toContain('<div id="root"></div>');
+    expect(res.text).toContain('href="/favicon.svg"');
+
+    const favicon = await request(app).get('/favicon.svg');
+    expect(favicon.statusCode).toBe(200);
+    expect(favicon.type).toMatch(/image\/svg\+xml/);
+    expect(favicon.body.toString('utf8')).toContain('<title id="title">RG</title>');
   });
 });
