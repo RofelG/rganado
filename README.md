@@ -12,6 +12,10 @@ Visit [http://localhost:8080](http://localhost:8080). To use a different host po
 
 Stop the site with `docker compose down`.
 
+## Deployment images
+
+Pushing to `master` publishes multi-architecture images to GitHub Container Registry (GHCR). The production Compose file pulls `:latest` tags, so Dockge's **Update** button pulls the new images and recreates the stack. Before the first Dockge deployment, make the three GHCR packages public or configure Dockge's Docker host with credentials that can pull them.
+
 ## Google tag
 
 Copy `.env.example` to `.env` and set `GOOGLE_TAG_ID` to your Google tag ID (for example, `G-XXXXXXXXXX`). The `.env` file is ignored by Git and excluded from the Docker build context. Leave the value blank to omit the tag. After changing it, run `docker compose up -d` to recreate the portfolio service with the new value.

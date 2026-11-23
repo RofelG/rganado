@@ -1,6 +1,6 @@
 services:
   web:
-    build: .
+    image: ghcr.io/rofelg/rganado-web:latest
     ports:
       - "${PORT:-8080}:80"
     depends_on:
@@ -10,9 +10,7 @@ services:
         condition: service_healthy
     restart: unless-stopped
   portfolio:
-    build:
-      context: .
-      dockerfile: docker/portfolio.Dockerfile
+    image: ghcr.io/rofelg/rganado-portfolio:latest
     environment:
       GOOGLE_TAG_ID: '${GOOGLE_TAG_ID:-}'
     healthcheck:
@@ -22,9 +20,7 @@ services:
       retries: 10
     restart: unless-stopped
   scratch:
-    build:
-      context: .
-      dockerfile: docker/scratch/Dockerfile
+    image: ghcr.io/rofelg/rganado-scratch:latest
     environment:
       CONTENT_MAPPING: '${CONTENT_MAPPING:-}'
     healthcheck:
